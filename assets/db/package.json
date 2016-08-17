@@ -1,0 +1,12 @@
+{
+  "name": "db",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "prod:drop": "psql -c \"DROP DATABASE IF EXISTS rest_api_example\"",
+    "prod:create": "psql -c \"CREATE DATABASE rest_api_example\"",
+    "prod:init": "npm run prod:drop -s && npm run prod:create -s",
+    "prod:run": "node --require dotenv/config init",
+    "test": "eslint **/*.js"
+  }
+}
