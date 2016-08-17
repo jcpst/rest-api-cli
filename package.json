@@ -5,13 +5,19 @@
     "rest-api-cli": "cli.js"
   },
   "description": "A simple node REST API boilerplate",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "REST",
+    "API",
+    "cli",
+    "generator",
+    "boilerplate",
+    "restify"
+  ],
+  "author": "Joseph Post <joe@jcpst.com> (http://jcpst.com)",
+  "repository": "jcpst/rest-api-cli",
+  "bugs": "https://github.com/jcpst/rest-api-cli/issues",
   "license": "ISC",
+  "reveal": true,
   "dependencies": {
     "colors": "^1.1.2",
     "minimist": "^1.2.0",
