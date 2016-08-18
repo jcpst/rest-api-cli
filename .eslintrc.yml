@@ -1,0 +1,4 @@
+---
+env:
+  shelljs: true
+extends: standard

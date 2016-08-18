@@ -14,10 +14,10 @@ const columns = [
 const places = query(db, table, columns)
 
 module.exports = app => {
-  app.get ('/places'    , places.index  )
-  app.get ('/places/:id', places.find   )
-  app.post('/places'    , places.create )
-  app.put ('/places/:id', places.update )
-  app.del ('/places/:id', places.destroy)
+  app.get('/places', places.index)
+  app.get('/places/:id', places.find)
+  app.post('/places', places.create)
+  app.put('/places/:id', places.update)
+  app.del('/places/:id', places.destroy)
 }
 

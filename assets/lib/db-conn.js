@@ -5,7 +5,7 @@ const knex = require('knex')
 
 let config = {}
 
-if (process.env.NODE_ENV === 'prod' || process.env.NODE_ENV == 'production') {
+if (process.env.NODE_ENV === 'prod' || process.env.NODE_ENV === 'production') {
   config = {
     client: 'pg',
     connection: {
@@ -23,7 +23,6 @@ if (process.env.NODE_ENV === 'prod' || process.env.NODE_ENV == 'production') {
     },
     useNullAsDefault: true
   }
-
 }
 
 module.exports = knex(config)

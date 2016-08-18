@@ -22,5 +22,15 @@
     "colors": "^1.1.2",
     "minimist": "^1.2.0",
     "shelljs": "^0.7.3"
+  },
+  "scripts": {
+    "test": "eslint cli.js assets/{src,lib,db}/**/*.js"
+  },
+  "devDependencies": {
+    "eslint": "^3.3.1",
+    "eslint-config-standard": "^5.3.5",
+    "eslint-plugin-promise": "^2.0.1",
+    "eslint-plugin-standard": "^2.0.0",
+    "pre-commit": "^1.1.3"
   }
 }

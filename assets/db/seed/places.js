@@ -21,7 +21,7 @@ module.exports = db => {
       city: 'Kansas City',
       country: 'US',
       state: 'MO'
-    },
+    }
   ])
 }
 

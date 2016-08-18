@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 'use strict'
 
-require('colors')
-require('shelljs/global')
+const color = require('colors')
+const sh = require('shelljs')
 
 const path = require('path')
 const argv = require('minimist')(process.argv.slice(2))
@@ -20,35 +20,37 @@ Usage:
 
 Scaffold out a basic REST API app into new directory.`
 
-const noPathProvided = `
+const noPathProvided = color.red(`
 ERROR: Provide a [path] argument:
-$ rest-api-cli app-name`.red
+$ rest-api-cli app-name
+`)
 
-const gettingStarted = `
+const gettingStarted = color.green(`
 Done. Getting started:
   $ cd ${basename}
   $ npm run db
-  $ npm start`.green
+  $ npm start
+`)
 
 function convertPackageName () {
   const pkgJsonObj = require(packageJson)
   pkgJsonObj.name = basename
   const updatedPackageJson = JSON.stringify(pkgJsonObj, null, '  ')
-  ShellString(updatedPackageJson).to(packageJson)
+  sh.ShellString(updatedPackageJson).to(packageJson)
 }
 
 function build () {
-  mkdir('-p', destDir)
-  cp('-r', `${srcDir}/{*,.*}`, destDir)
+  sh.mkdir('-p', destDir)
+  sh.cp('-r', `${srcDir}/{*,.*}`, destDir)
   convertPackageName()
-  echo(gettingStarted)
+  sh.echo(gettingStarted)
 }
 
 if (argv.h || argv.help) {
-  echo(help)
+  sh.echo(help)
 } else if (!basename) {
-  echo(noPathProvided)
-  echo(help)
+  sh.echo(noPathProvided)
+  sh.echo(help)
 } else {
   build()
 }
