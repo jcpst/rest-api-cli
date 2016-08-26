@@ -1,6 +1,9 @@
 'use strict'
 
+const fs = require('fs')
 const db = require('lib/db-conn')
+
+fs.unlinkSync('db.sqlite')
 
 db.schema
   // ==========================================================================

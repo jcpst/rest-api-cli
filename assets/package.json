@@ -2,32 +2,22 @@
   "name": "",
   "version": "1.0.0",
   "description": "",
-  "main": "src",
-  "scripts": {
-    "predb": "rimraf db.sqlite",
-    "db": "node db/init && node db/seed",
-    "start": "nodemon",
-    "test": "eslint **/*.js"
-  },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "eslintConfig": {
-    "env": {
-      "jasmine": true
-    },
-    "extends": "standard"
+  "main": "src",
+  "scripts": {
+    "db": "node db/init",
+    "postdb": "node db/seed",
+    "start": "nodemon",
+    "test": "standard"
   },
   "devDependencies": {
     "dotenv": "^2.0.0",
-    "eslint": "^3.2.2",
-    "eslint-config-standard": "^5.3.5",
-    "eslint-plugin-promise": "^2.0.1",
-    "eslint-plugin-standard": "^2.0.0",
     "nodemon": "^1.10.0",
     "pre-commit": "^1.1.3",
-    "request": "^2.74.0",
-    "sqlite3": "^3.1.4"
+    "sqlite3": "^3.1.4",
+    "standard": "^8.0.0"
   },
   "dependencies": {
     "knex": "^0.11.10",
