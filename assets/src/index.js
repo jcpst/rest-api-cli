@@ -15,6 +15,14 @@ server.use(restify.bodyParser())
 queries(server)
 
 server.listen(8079, () => {
-  console.log(`listening at ${server.url}`)
+  const routes = server.router.mounts
+  const routeKeys = Object.keys(server.router.mounts)
+  console.log(`listening...`)
+  console.log('urls to try:')
+  routeKeys.forEach(route => {
+    if (routes[route].method === 'GET' && !/:/.test(routes[route].spec.path)) {
+      console.log(`${server.url}${routes[route].spec.path}`)
+    }
+  })
 })
 
