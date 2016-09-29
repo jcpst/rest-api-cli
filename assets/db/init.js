@@ -1,9 +1,18 @@
 'use strict'
 
 const fs = require('fs')
-const db = require('lib/db-conn')
+const db = require('../utils/db-conn')
+const dbFile = 'db.sqlite'
 
-fs.unlinkSync('db.sqlite')
+try {
+  let stats = fs.statSync(dbFile)
+  if (stats.isFile()) {
+    fs.unlinkSync(dbFile)
+    console.log('deleted:', dbFile)
+  }
+} catch (e) {
+  console.log("sqlite database doesn't exist yet...")
+}
 
 db.schema
   // ==========================================================================
@@ -26,7 +35,6 @@ db.schema
     t.integer('place_id').references('id').inTable('places')
     t.timestamps()
   })
-
   .then(() => {
     console.log('tables successfully written to the database')
     process.exit(0)

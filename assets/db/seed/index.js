@@ -1,6 +1,6 @@
 'use strict'
 
-const db = require('lib/db-conn')
+const db = require('../../utils/db-conn')
 
 const error = err => {
   throw err
@@ -9,9 +9,10 @@ const error = err => {
 require('./places')(db)
   .then(x => x)
   .catch(error)
+
 require('./people')(db)
-  .tap(() => {
-    console.log('control-c to exit...')
+  .then(() => {
+    process.exit(0)
   })
   .catch(error)
 
