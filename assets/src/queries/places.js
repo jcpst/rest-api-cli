@@ -1,7 +1,7 @@
 'use strict'
 
-const db = require('lib/db-conn')
-const query = require('lib/query')
+const db = require('../../utils/db-conn')
+const query = require('../../utils/query')
 
 const table = 'places'
 const columns = [
