@@ -28,6 +28,7 @@ $ rest-api-cli app-name
 const gettingStarted = color.green(`
 Done. Getting started:
   $ cd ${basename}
+  $ npm i
   $ npm run db
   $ npm start
 `)
